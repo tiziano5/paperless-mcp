@@ -1,0 +1,14 @@
+name: paperless-mcp
+
+services:
+  paperless-mcp:
+    build: .
+    container_name: paperless-mcp
+    restart: unless-stopped
+    ports:
+      - "8802:8802"
+    environment:
+      - PAPERLESS_URL=${PAPERLESS_URL}
+      - PAPERLESS_TOKEN=${PAPERLESS_TOKEN}
+      - MCP_HOST=0.0.0.0
+      - MCP_PORT=8802
